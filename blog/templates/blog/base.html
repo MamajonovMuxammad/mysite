@@ -4,21 +4,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
-    <div id="content">
-        {% block content %}
-        {% endblock %}
+    
+    <div class="loader">
+        <div class="cell d-0"></div>
+        <div class="cell d-1"></div>
+        <div class="cell d-2"></div>
+
+        <div class="cell d-1"></div>
+        <div class="cell d-2"></div>
+
+
+        <div class="cell d-2"></div>
+        <div class="cell d-3"></div>
+
+
+        <div class="cell d-3"></div>
+        <div class="cell d-4"></div>
+
+
     </div>
-    <div id="slidebar">
-        <h2>My blog</h2>
-        <p>This is my blog</p>
+    
+    <div id="global_div">
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    
     </div>
+    
+
 </body>
 
 </html>
