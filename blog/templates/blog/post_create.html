@@ -1,0 +1,18 @@
+<!-- blog/templates/blog/post_create.html -->
+{% extends "blog/base.html" %}
+
+{% block content %}
+<h2>Add a New Post</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button style="border-radius: 5px; border: none; 
+    background-color: rgb(21, 182, 120); 
+    margin-left: 240px;
+    border: solid 1px black;
+    width: 70px; height: 30px;
+    
+
+    " type="submit">Save</button>
+</form>
+{% endblock %}

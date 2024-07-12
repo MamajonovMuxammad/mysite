@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <h1>User Profile</h1>
+    <p>Привет, {{ user.username }}!</p>
+    <p>Email: {{ user.email }}</p>
+
+    <!-- Пример вывода информации о профиле пользователя -->
+    {% if profile %}
+        <h2>Информация о профиле</h2>
+        <p>Имя: {{ profile.first_name }} {{ profile.last_name }}</p>
+        <p>Дата рождения: {{ profile.birth_date }}</p>
+        <!-- Дополнительные поля профиля -->
+    {% else %}
+        <p>Информация о профиле отсутствует.</p>
+    {% endif %}
+
+
+{% endblock %}

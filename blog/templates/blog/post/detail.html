@@ -3,7 +3,6 @@
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
 <h1>{{ post.title }}</h1>
-<img src="{% static 'img/kk.jpg' %}" alt="">
 <p class="date">
     Published {{ post.publish }} by {{ post.author }}
 </p>
@@ -13,6 +12,15 @@
         Share this post
     </a>
 </p>
+
+<h2>Similar posts</h2>
+  {% for post in similar_posts %}
+    <p>
+      <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+    </p>
+  {% empty %}
+  There are no similar posts yet.
+  {% endfor %}
 {% with comments.count as total_comments %}
 <h2>
     {{ total_comments }} comment{{ total_comments|pluralize }}
@@ -25,6 +33,11 @@
         {{ comment.created }}
     </p>
     {{ comment.body|linebreaks }}
+    {% if comment.image %}
+        <p>
+            <img src="{{ comment.image.url }}" alt="Комментарий изображение" style="max-width: 100%;">
+        </p>
+    {% endif %}
 </div>
 {% empty %}
 <p>There are no comments.</p>

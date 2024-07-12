@@ -1,443 +1,188 @@
-body { 
-    margin:0;
-    padding:0;
-    font-family:helvetica, sans-serif; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #333;
-    font-family: monospace;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: helvetica, sans-serif;
+  font-family: monospace;
+  height: 100%;
 }
 
-a { 
-    color:#205334;
-    text-decoration:none; 
-    transition: 1s delay 0.5s;
+html {
+  height:100%;
+}
 
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+
+
+
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+
+a {
+  color: #230c61;
+  text-decoration: none;
+  transition: 1s delay 0.5s;
+  text-decoration: underline;
 }
 
 .underline-one {
-	color: #00bfff; /* Цвет обычной ссылки */
-    position: relative;
-    cursor: pointer;
-    text-decoration: none; /* Убираем подчеркивание */
+  color: #00bfff;
+  /* Цвет обычной ссылки */
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  /* Убираем подчеркивание */
 }
+
 .underline-one:after {
-	content: "";
-    display: block;
-    position: absolute;
-    right: 0;
-    bottom: -3px;
-    width: 0;
-    height: 2px; /* Высота линии */
-    background-color: black; /* Цвет подчеркивания при исчезании линии*/
-    transition: width 0.5s; /* Время эффекта */
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  /* Высота линии */
+  background-color: black;
+  /* Цвет подчеркивания при исчезании линии*/
+  transition: width 0.5s;
+  /* Время эффекта */
 }
 
 .underline-one:hover:after {
-	content: "";
-    width: 100%;
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    height: 2px; /* Высота линии */
-    background-color: rgb(0, 0, 0); /* Цвет подчеркивания при появлении линии*/
-    transition: width 0.5s;  /* Время эффекта */
+  content: "";
+  width: 100%;
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  /* Высота линии */
+  background-color: rgb(0, 0, 0);
+  /* Цвет подчеркивания при появлении линии*/
+  transition: width 0.5s;
+  /* Время эффекта */
 }
+
+
 
 #global_div{
-    border: solid 2px black;
-    padding: 15px ;
-    margin-top: -500px;
-    border-radius: 12px;
-    background-color: #24db1e;
-    
+  width: 500px;
+  height: 900px;
 }
-/* /////////////////// */
-.loader {
-    --cell-size: 200px;
-    --cell-spacing: 1px;
-    --cells: 3;
-    --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));
-    display: flex;
-    flex-wrap: wrap;
-    width: var(--total-size);
-    height: var(--total-size);
-    margin-top: 150px;
-  }
-  
-  .cell {
-    flex: 0 0 var(--cell-size);
-    margin: var(--cell-spacing);
-    background-color: transparent;
-    box-sizing: border-box;
-    border-radius: 4px;
-    animation: 1.5s ripple ease infinite;
-  }
-  
-  .cell.d-1 {
-    animation-delay: 100ms;
-  }
-  
-  .cell.d-2 {
-    animation-delay: 200ms;
-  }
-  
-  .cell.d-3 {
-    animation-delay: 300ms;
-  }
-  
-  .cell.d-4 {
-    animation-delay: 400ms;
-  }
-  
-  .cell:nth-child(1) {
-    --cell-color: #00FF87;
-  }
-  
-  .cell:nth-child(2) {
-    --cell-color: #0CFD95;
-  }
-  
-  .cell:nth-child(3) {
-    --cell-color: #17FBA2;
-  }
-  
-  .cell:nth-child(4) {
-    --cell-color: #23F9B2;
-  }
-  
-  .cell:nth-child(5) {
-    --cell-color: #30F7C3;
-  }
-  
-  .cell:nth-child(6) {
-    --cell-color: #3DF5D4;
-  }
-  
-  .cell:nth-child(7) {
-    --cell-color: #45F4DE;
-  }
-  
-  .cell:nth-child(8) {
-    --cell-color: #53F1F0;
-  }
-  
-  .cell:nth-child(9) {
-    --cell-color: #60EFFF;
-  }
-  
-  /*Animation*/
-  @keyframes ripple {
-    0% {
-      background-color: transparent;
-    }
-  
-    30% {
-    background-color: var(--cell-color);
-    }
-  
-    60% {
-    background-color: transparent;
-    }
-  
-    100% {
-    background-color: transparent;
-    }
-  }
+
 /* ///////////////////////////// */
-#content { 
-    width: 350px;
-    
-}
-img{
-    width: 200px;
+#content {
+  width: 600px;
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: monospace;
 }
 
-.sparkle-button {
-    --active: 0;
-    --bg: radial-gradient(
-              40% 50% at center 100%,
-              hsl(270 calc(var(--active) * 97%) 72% / var(--active)),
-              transparent
-          ),
-          radial-gradient(
-              80% 100% at center 120%,
-              hsl(260 calc(var(--active) * 97%) 70% / var(--active)),
-              transparent
-          ),
-          hsl(260 calc(var(--active) * 97%) calc((var(--active) * 44%) + 12%));
-    background: var(--bg);
-    font-size: 1.2rem;
-    font-weight: 500;
-    border: 0;
-    cursor: pointer;
-    padding: 1em 1em;
-    display: flex;
-    align-items: center;
-    gap: 0.25em;
-    white-space: nowrap;
-    border-radius: 50px;
-    position: relative;
-    box-shadow: 0 0 calc(var(--active) * 3em) calc(var(--active) * 1em) hsl(260 97% 61% / 0.75),
-          0 0em 0 0 hsl(260 calc(var(--active) * 97%) calc((var(--active) * 50%) + 30%)) inset,
-          0 -0.05em 0 0 hsl(260 calc(var(--active) * 97%) calc(var(--active) * 60%)) inset;
-    transition: box-shadow var(--transition), scale var(--transition), background var(--transition);
-    scale: calc(1 + (var(--active) * 0.1));
-    transition: .3s;
-  }
-  
-  .sparkle-button:active {
-    scale: 1;
-    transition: .3s;
-  }
-  
-  .sparkle path {
-    color: hsl(0 0% calc((var(--active, 0) * 70%) + var(--base)));
-    transform-box: fill-box;
-    transform-origin: center;
-    fill: currentColor;
-    stroke: currentColor;
-    animation-delay: calc((var(--transition) * 1.5) + (var(--delay) * 1s));
-    animation-duration: 0.6s;
-    transition: color var(--transition);
-  }
-  
-  .sparkle-button:is(:hover, :focus-visible) path {
-    animation-name: bounce;
-  }
-  
-  @keyframes bounce {
-    35%, 65% {
-      scale: var(--scale);
-    }
-  }
-  
-  .sparkle path:nth-of-type(1) {
-    --scale: 0.5;
-    --delay: 0.1;
-    --base: 40%;
-  }
-  
-  .sparkle path:nth-of-type(2) {
-    --scale: 1.5;
-    --delay: 0.2;
-    --base: 20%;
-  }
-  
-  .sparkle path:nth-of-type(3) {
-    --scale: 2.5;
-    --delay: 0.35;
-    --base: 30%;
-  }
-  
-  .sparkle-button:before {
-    content: "";
-    position: absolute;
-    inset: -0.2em;
-    z-index: -1;
-    border: 0.25em solid hsla(260, 41%, 39%, 0.5);
-    border-radius: 100px;
-    opacity: var(--active, 0);
-    transition: opacity var(--transition);
-  }
-  
-  .spark {
-    position: absolute;
-    inset: 0;
-    border-radius: 100px;
-    rotate: 0deg;
-    overflow: hidden;
-    mask: linear-gradient(white, transparent 50%);
-    animation: flip calc(var(--spark) * 2) infinite steps(2, end);
-  }
-  
-  @keyframes flip {
-    to {
-      rotate: 360deg;
-    }
-  }
-  
-  .spark:before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    aspect-ratio: 1;
-    top: 0%;
-    left: 50%;
-    z-index: -1;
-    translate: -50% -15%;
-    rotate: 0;
-    transform: rotate(-90deg);
-    opacity: calc((var(--active)) + 0.4);
-    background: conic-gradient(
-          from 0deg,
-          transparent 0 340deg,
-          white 360deg
-      );
-    transition: opacity var(--transition);
-    animation: rotate var(--spark) linear infinite both;
-  }
-  
-  .spark:after {
-    content: "";
-    position: absolute;
-    inset: var(--cut);
-    border-radius: 100px;
-  }
-  
-  .backdrop {
-    position: absolute;
-    inset: var(--cut);
-    background: var(--bg);
-    border-radius: 100px;
-    transition: background var(--transition);
-  }
-  
-  @keyframes rotate {
-    to {
-      transform: rotate(90deg);
-    }
-  }
-  
-  @supports(selector(:has(:is(+ *)))) {
-    body:has(button:is(:hover, :focus-visible)) {
-      --active: 1;
-      --play-state: running;
-    }
-  
-    .bodydrop {
-      display: none;
-    }
-  }
-  
-  .sparkle-button:is(:hover, :focus-visible) ~ :is(.bodydrop, .particle-pen) {
-    --active: 1;
-    --play-state: runnin;
-  }
-  
-  .sparkle-button:is(:hover, :focus-visible) {
-    --active: 1;
-    --play-state: running;
-  }
-  
-  .sp {
-    display: flex;
-    align-items: center;
-    margin-top: -550px;
-
-  }
-  
-  .particle-pen {
-    position: absolute;
-    width: 100%;
-    aspect-ratio: 1;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    -webkit-mask: radial-gradient(white, transparent 65%);
-    z-index: -1;
-    opacity: var(--active, 0);
-    transition: opacity var(--transition);
-  }
-  
-  .particle {
-    fill: white;
-    width: calc(var(--size, 0.25) * 1rem);
-    aspect-ratio: 1;
-    position: absolute;
-    top: calc(var(--y) * 1%);
-    left: calc(var(--x) * 1%);
-    opacity: var(--alpha, 1);
-    animation: float-out calc(var(--duration, 1) * 1s) calc(var(--delay) * -1s) infinite linear;
-    transform-origin: var(--origin-x, 1000%) var(--origin-y, 1000%);
-    z-index: -1;
-    animation-play-state: var(--play-state, paused);
-  }
-  
-  .particle path {
-    fill: hsl(0 0% 90%);
-    stroke: none;
-  }
-  
-  .particle:nth-of-type(even) {
-    animation-direction: reverse;
-  }
-  
-  @keyframes float-out {
-    to {
-      rotate: 360deg;
-    }
-  }
-  
-  .text {
-    translate: 2% -6%;
-    letter-spacing: 0.01ch;
-    background: linear-gradient(90deg, hsl(0 0% calc((var(--active) * 100%) + 65%)), hsl(0 0% calc((var(--active) * 100%) + 26%)));
-    -webkit-background-clip: text;
-    color: transparent;
-    transition: background var(--transition);
-  }
-  
-  .sparkle-button svg {
-    inline-size: 1.25em;
-    translate: -25% -5%;
-  }
-p.date { 
-    color:#ccc;
-    font-family: georgia, serif;
-    font-size: 12px;
-    font-style: italic; 
-}
 
 /* pagination */
-.pagination { 
-    margin:40px 0; 
-    font-weight:bold;
+.pagination {
+  margin: 40px 0;
+  font-weight: bold;
 }
 
 /* forms */
-label { 
-    float:left;
-    clear:both;
-    color:#333;
-    margin-bottom:4px; 
+label {
+  float: left;
+  clear: both;
+  color: #140952;
+  margin-bottom: 4px;
 }
-input, textarea { 
-    clear:both;
-    float:left;
-    margin:0 0 10px;
-    background:#ededed;
-    border:0;
-    padding:6px 10px;
-    font-size:12px;
+
+input,
+textarea {
+  clear: both;
+  float: left;
+  margin: 0 0 10px;
+  background: #ededed;
+  border: 0;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 10px;
 }
+
 input[type=submit] {
-    font-weight:bold;
-    background:#00abff;
-    color:#fff;
-    padding:10px 20px;
-    font-size:14px;
-    text-transform:uppercase; 
+  font-weight: bold;
+  background: #352cdf;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 10px;
 }
-.errorlist { 
-    color:#cc0033;
-    float:left;
-    clear:both;
-    padding-left:10px; 
+
+.errorlist {
+  color: #cc0033;
+  float: left;
+  clear: both;
+  padding-left: 10px;
 }
 
 /* comments */
 .comment {
-    padding:10px;
-}
-.comment:nth-child(even) {
-    background:#efefef;
-}
-.comment .info {
-    font-weight:bold;
-    font-size:12px;
-    color:#666;
+  padding: 10px;
 }
 
+.comment:nth-child(even) {
+  background: #4d0d6b;
+  border-radius: 10px;
+  color: #74fd4a;
+} 
+
+.comment .info {
+  font-weight: bold;
+  font-size: 12px;
+  color: #ffffff;
+}
+.add_new_post{
+  width: 100px;
+  height: 30px;
+  background-color: rgb(56, 139, 194);
+  margin-left: 93%;
+  position: absolute;
+  margin-top: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px #221c1c;
+  
+}
+
+.latest_post{
+margin-top: -1000px;
+  position: absolute;
+}
